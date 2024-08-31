@@ -1,0 +1,177 @@
+/* Base styles for the header */
+.header {
+  background-color: #f8f9fa; /* Light background color */
+  border-bottom: 1px solid #d8e0e7; /* Subtle border at the bottom */
+  padding: 20px 20px; /* Padding for spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px; /* Set a fixed height for the header */
+  cursor: pointer;
+  margin:1rem 1rem;
+  background-color: rgb(215, 236, 254);
+  
+}
+
+/* Container for header elements */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+}
+
+/* Styling for the logo section */
+.logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 40px; /* Control the logo size */
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* Search bar styling */
+.search-bar {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px 40px 8px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  color: #6c757d;
+  font-size: 16px; /* Adjust the size of the icon */
+}
+
+/* User section styling */
+.user-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* User profile styling */
+.user-profile {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 20px;
+}
+
+.profile-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-icon {
+  font-size: 24px;
+  color: #6c757d;
+}
+
+/* User panel styling - hidden by default, visible on hover */
+.user-profile:hover .user-panel {
+  display: block;
+}
+
+.user-panel {
+  display: none;
+  position: absolute;
+  top: 30px; /* Adjust position based on your design */
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.user-panel-link {
+  display: block;
+  padding: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.user-panel-link:hover {
+  background-color: #f1f1f1;
+}
+
+/* Cart section styling */
+.cart-section {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.cart-count {
+  font-size: 14px;
+  color: #6c757d;
+  margin-right: 5px;
+}
+
+.cart-icon {
+  font-size: 24px;
+  color: #007bff;
+}
+
+/* Authentication button styling */
+.auth-section {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button, .login-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}

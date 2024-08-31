@@ -1,0 +1,54 @@
+/* AllUsers.css */
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  .users-table th,
+  .users-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+  
+  .users-table th {
+    background-color: #007bff; /* Bright blue background for the header */
+    color: #ffffff; /* White text color for contrast */
+    font-weight: bold;
+  }
+  
+  .users-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternating row colors */
+  }
+  
+  .users-table tbody tr:hover {
+    background-color: #e0f7fa; /* Highlight on hover with a subtle blue */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .admin-edit {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s, background-color 0.3s; /* Smooth transition */
+  }
+  
+  .admin-edit:hover {
+    color: #007bff; /* Change icon color on hover */
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+    border-radius: 4px; /* Rounded corners for the hover effect */
+    padding: 4px; /* Add some padding for better aesthetics */
+  }
+  
+  .admin-edit:focus {
+    outline: none; /* Remove the default focus outline */
+  }
+  
+  .edit{
+    background-color: rgb(8, 133, 112);
+    color: white;
+    cursor: pointer;
+  }

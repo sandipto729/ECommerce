@@ -1,0 +1,122 @@
+/* Main container for the products */
+.product-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Header and button section */
+.productAll {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.productAll h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.productAll button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.productAll button:hover {
+  background-color: #0056b3;
+}
+
+/* Display grid for product cards */
+.product-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Product card styling */
+.product-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 8px;
+  width: 280px; /* Fixed width for uniformity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product image styling */
+.product-card img {
+  width: 100%;
+  height: 180px; /* Fixed height to maintain uniformity */
+  object-fit: cover; /* Ensures images cover the space without distortion */
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Product details */
+.product-card h3,
+.product-card p {
+  margin: 8px 0;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Making labels bold */
+.product-card p {
+  line-height: 1.5;
+}
+
+.product-card p::before {
+  font-weight: bold;
+  color: #333;
+}
+
+.product-card p:nth-of-type(1)::before {
+  content: "Selling Price: $";
+}
+
+.product-card p:nth-of-type(2)::before {
+  content: "Price: $";
+}
+
+.product-card p:nth-of-type(3)::before {
+  content: "Category: ";
+}
+
+.product-card p:nth-of-type(4)::before {
+  content: "Brand: ";
+}
+
+.product-card p:nth-of-type(5)::before {
+  content: "Selling Price: $";
+}
+
+/* Upload product section styling */
+.upload-product-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #eef2f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
