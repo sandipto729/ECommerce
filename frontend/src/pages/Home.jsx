@@ -1,9 +1,9 @@
 import React from 'react'
-
+import CatagoryList from '../components/catagoryList'
 const Home = () => {
   return (
     <div>
-      Home Page
+      <CatagoryList />
     </div>
   )
 }

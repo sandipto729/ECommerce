@@ -1,4 +1,4 @@
-const productModel=require('./../models/productModel');
+const productModel=require('./../../models/productModel');
 const getProductController = async (req, res) => {
     try{
         const allProducts = await productModel.find().sort({createdAt: -1}); 

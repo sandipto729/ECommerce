@@ -8,6 +8,7 @@ import AdminPanel from './../pages/AdminPanel';
 import AllUsers from './../pages/AllUsers';
 import Product from '../pages/AllProduct';
 import ChangeUserRole from './../components/ChangeUserRole';
+import CatagoryProduct from '../components/catagoryProduct';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Signup />,
+      },
+      {
+        path:'product-catagory/:catagory',
+        element: <CatagoryProduct />,
       },
       {
         path: 'admin-panel',

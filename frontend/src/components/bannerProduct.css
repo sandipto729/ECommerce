@@ -1,0 +1,16 @@
+/* BannerProduct.css */
+.slider-container {
+    width: 100%;
+    max-width: 1200px; /* Adjust to your needs */
+    margin: 0 auto;
+}
+
+.slider-item {
+    position: relative;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto; /* Adjust as needed */
+    display: block;
+}

@@ -64,7 +64,7 @@ const Product = () => {
               {/* <p>{product.productPrice}</p>
               <p>{product.productCategory}</p>
               <p>{product.productBrand}</p> */}
-              <p>{product.productSellingPrice}</p>
+              <p><strong>Price : </strong>{product.productSellingPrice}</p>
               <MdEdit onClick={() => setActiveProduct(product)} className='edit'/>
             </div>
           ))

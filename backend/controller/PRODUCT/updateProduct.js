@@ -1,5 +1,5 @@
-const productModel = require('./../models/productModel');
-const uploadPermission = require('./../helper/permission');
+const productModel = require('./../../models/productModel');
+const uploadPermission = require('./../../helper/permission');
 
 
 async function updateProductController(req, res) {
