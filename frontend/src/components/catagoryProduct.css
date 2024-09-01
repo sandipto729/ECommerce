@@ -7,8 +7,10 @@
 .category-title {
   width: 100%;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 20px;
+  color: rgb(70, 88, 40);
+  text-shadow: 1px 1px 2px rgb(183, 255, 107);
 }
 
 .product-list {
@@ -91,23 +93,25 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, filter 0.3s ease;
 }
 
 .add-to-cart-btn:hover {
   background-color: #0056b3;
+  /* filter: blur(2px); */
 }
 
 @media (max-width: 768px) {
   .category-title {
-      font-size: 20px;
+    font-size: 15px;
+    
   }
 
   .category-name {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .product-card_catagory {
-      width: 100%;
+    width: 100%;
   }
 }

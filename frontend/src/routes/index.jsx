@@ -9,6 +9,8 @@ import AllUsers from './../pages/AllUsers';
 import Product from '../pages/AllProduct';
 import ChangeUserRole from './../components/ChangeUserRole';
 import CatagoryProduct from '../components/catagoryProduct';
+import ProductPage from './../pages/ProductPage';
+import Cart from './../pages/cart';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
       {
         path:'product-catagory/:catagory',
         element: <CatagoryProduct />,
+      },
+      {
+        path:'product/:id',
+        element: <ProductPage />,
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
       },
       {
         path: 'admin-panel',

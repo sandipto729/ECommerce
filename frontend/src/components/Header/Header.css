@@ -2,14 +2,16 @@
 .header {
   background-color: #f8f9fa; /* Light background color */
   border-bottom: 1px solid #d8e0e7; /* Subtle border at the bottom */
-  padding: 20px 20px; /* Padding for spacing */
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 60px; /* Set a fixed height for the header */
   cursor: pointer;
-  margin:1rem 1rem;
   background-color: rgb(215, 236, 254);
+ 
+  width: 95vw;
+  margin: 0 auto;
   
 }
 

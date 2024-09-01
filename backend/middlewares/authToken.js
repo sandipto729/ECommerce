@@ -16,7 +16,7 @@ async function authToken(req, res, next) {
     jwt.verify(token, process.env.TOKEN_SECRET_KEY, (err, decoded) => {
       if (err) {
         return res.status(401).json({
-          message: "Invalid token",
+          message: "Please log in",
           data: [],
           error: true,
           success: false,

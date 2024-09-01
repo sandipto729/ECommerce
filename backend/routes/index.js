@@ -11,8 +11,12 @@ const uploadProductController = require('./../controller/PRODUCT/uploadProduct')
 const allProduct=require('./../controller/PRODUCT/getProduct');
 const updateProduct=require('./../controller/PRODUCT/updateProduct');
 const catagoryProduct=require('./../controller/PRODUCT/getCatagoryProduct');
+const getProductById=require('./../controller/PRODUCT/getProductById');
+const addToCart=require('./../controller/USER/addToCartController');
+const countCartProduct=require('./../controller/USER/countAddToCartProduct');
+const cartView=require('./../controller/USER/cartViewProduct');
 
-
+//user panel
 router.post('/signup', userSignUpController);
 router.post('/signin', userSigninController);
 router.get('/user-details', authToken, userDetailsController);
@@ -27,5 +31,11 @@ router.post('/upload-product', authToken,uploadProductController);
 router.get('/get-product',allProduct);
 router.post('/update-product',authToken,updateProduct);
 router.post('/get-catagoryProduct',catagoryProduct);
+router.post('/get-productById',getProductById);
+
+//cart
+router.post('/add-to-cart',authToken,addToCart);
+router.get('/countcartProduct',authToken,countCartProduct);
+router.get('/get-cartProduct',authToken,cartView);
 
 module.exports = router;

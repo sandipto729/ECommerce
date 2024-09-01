@@ -1,0 +1,126 @@
+/* Main container for the cart view */
+.cartProductView {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+.cart-products {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.cart-summary {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20rem;
+}
+
+.cart-summary h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+}
+
+.summary-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.summary-total {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.cart-product-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cart-product-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-product-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.cart-product-details {
+    flex: 1;
+}
+
+.cart-product-details h4 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.cart-product-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Styling for prices */
+.selling-price {
+    color: green; /* Green color for discounted price */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.original-price {
+    color: red; /* Red color for original price */
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+.discount {
+    color: #ff4500; /* Orange for discount percentage */
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .cartProductView {
+        flex-direction: column;
+    }
+
+    .cart-summary {
+        margin-top: 20px;
+    }
+}
