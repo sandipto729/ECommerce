@@ -15,6 +15,9 @@ const getProductById=require('./../controller/PRODUCT/getProductById');
 const addToCart=require('./../controller/USER/addToCartController');
 const countCartProduct=require('./../controller/USER/countAddToCartProduct');
 const cartView=require('./../controller/USER/cartViewProduct');
+const cartEdit=require('./../controller/USER/cartEdit');
+const deleteCartProduct=require('./../controller/USER/deleteCartProduct');
+
 
 //user panel
 router.post('/signup', userSignUpController);
@@ -37,5 +40,7 @@ router.post('/get-productById',getProductById);
 router.post('/add-to-cart',authToken,addToCart);
 router.get('/countcartProduct',authToken,countCartProduct);
 router.get('/get-cartProduct',authToken,cartView);
+router.post('/cart-edit',authToken,cartEdit);
+router.delete('/delete-cartProduct',authToken,deleteCartProduct);
 
 module.exports = router;

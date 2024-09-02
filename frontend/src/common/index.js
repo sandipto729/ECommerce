@@ -56,6 +56,14 @@ const SummaryApi = {
     cartView:{
         url: `${backendDomin}/api/get-cartProduct`,
         method: "get"
+    },
+    cartEdit:{
+        url: `${backendDomin}/api/cart-edit`,
+        method: "post"
+    },
+    cartDelete:{
+        url: `${backendDomin}/api/delete-cartProduct`,
+        method: "delete"
     }
 }
 

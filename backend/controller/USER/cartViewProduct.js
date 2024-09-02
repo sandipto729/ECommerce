@@ -20,6 +20,7 @@ const cartViewProduct = async (req, res) => {
         // Fetch user details
         const user = await userModel.findById(sessionUserId);
         const sendData = {
+            cartProducts,
             products,
             user
         };
