@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import summaryApi from './../common/index';
 import { toast } from 'react-toastify';
 import Spinner from '../helper/Spinner';
 import './cart.css';
 import { Link } from 'react-router-dom';
+import Context from './../context/index';
 
 const Cart = () => {
+  const { fetchCartProducts } = useContext(Context);
   const [cartProducts, setCartProducts] = useState([]);
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
@@ -23,10 +25,8 @@ const Cart = () => {
       });
       const data = await response.json();
       if (data.success) {
-        // toast.success(data.message);
         setTotalPdt(data.data);
-        console.log('Faulty Cart Number: ', data.data);
-
+        console.log('Cart Number:', data.data);
       } else {
         toast.error(data.message);
         throw new Error(data.message);
@@ -35,9 +35,9 @@ const Cart = () => {
       console.error('Error fetching cart number:', error);
       toast.error('Failed to fetch cart number');
     }
-  }
+  };
 
-  const fetchCartProducts = async () => {
+  const fetchCartProduct = async () => {
     setLoading(true);
     try {
       const response = await fetch(summaryApi.cartView.url, {
@@ -54,7 +54,6 @@ const Cart = () => {
         setCartProducts(data.data.products);
         setUser(data.data.user);
         setCartDetails(data.data.cartProducts);
-        // toast.success(data.message);
         console.log('Fetched Data: ', data.data);
       } else {
         toast.error(data.message);
@@ -68,45 +67,47 @@ const Cart = () => {
     }
   };
 
-
-
   const handleIncrease = async (cartStruct, e) => {
     e.preventDefault();
     e.stopPropagation();
-    cartStruct.quantity += 1;
 
-    const response = await fetch(summaryApi.cartEdit.url, {
-      method: summaryApi.cartEdit.method,
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        productId: cartStruct.productId,
-        quantity: cartStruct.quantity
-      }),
-    })
+    try {
+      const response = await fetch(summaryApi.cartEdit.url, {
+        method: summaryApi.cartEdit.method,
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId: cartStruct.productId,
+          quantity: cartStruct.quantity + 1, // Increase quantity by 1
+        }),
+      });
 
-    const data = await response.json();
-    if (data.success) {
-      toast.success(data.message);
-      fetchCartProducts();
-      fetchCartNumber();
-    } else {
-      toast.error(data.message);
+      const data = await response.json();
+      if (data.success) {
+        toast.success(data.message);
+        fetchCartProduct(); // Refresh cart data
+        fetchCartNumber();
+        fetchCartProducts();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.error('Error increasing quantity:', error);
+      toast.error('Error updating product quantity.');
     }
   };
 
   const handleDecrease = async (cartStruct, e) => {
     e.preventDefault();
     e.stopPropagation();
-    cartStruct.quantity -= 1;
 
-    // Ensure quantity does not go negative
-    if (cartStruct.quantity < 1) {
+    if (cartStruct.quantity <= 1) {
+      // Ensure quantity does not go below 1, remove if needed
       try {
         const response = await fetch(summaryApi.cartDelete.url, {
-          method: summaryApi.cartDelete.method, // Ensure correct method
+          method: summaryApi.cartDelete.method,
           credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
@@ -119,15 +120,15 @@ const Cart = () => {
         const data = await response.json();
         if (data.success) {
           toast.success(data.message);
-          fetchCartProducts(); // Refresh cart data
+          fetchCartProduct(); // Refresh cart data
           fetchCartNumber();
+          fetchCartProducts();
         } else {
           toast.error(data.message);
-          console.error('Delete failed:', data.message);
         }
       } catch (error) {
+        console.error('Error deleting product from cart:', error);
         toast.error('Error deleting product from cart.');
-        console.error('Error:', error);
       }
     } else {
       try {
@@ -139,31 +140,29 @@ const Cart = () => {
           },
           body: JSON.stringify({
             productId: cartStruct.productId,
-            quantity: cartStruct.quantity,
+            quantity: cartStruct.quantity - 1, // Decrease quantity by 1
           }),
         });
 
         const data = await response.json();
         if (data.success) {
           toast.success(data.message);
-          fetchCartProducts(); // Refresh cart data
+          fetchCartProduct(); // Refresh cart data
+          fetchCartProducts();
         } else {
           toast.error(data.message);
-          console.error('Update failed:', data.message);
         }
       } catch (error) {
+        console.error('Error decreasing quantity:', error);
         toast.error('Error updating product quantity.');
-        console.error('Error:', error);
       }
     }
   };
 
-
-
   const calculateTotal = () => {
     let total = 0;
     for (let i = 0; i < cartProducts.length; i++) {
-      total += Number((cartDetails[i].quantity) * (cartProducts[i].productSellingPrice));
+      total += Number(cartDetails[i].quantity * cartProducts[i].productSellingPrice);
     }
     return total;
   };
@@ -177,10 +176,9 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    fetchCartProducts();
-    fetchCartNumber(); // Also fetch the total product count on mount
-  }, []); // Add an empty array to only run on component mount
-
+    fetchCartProduct();
+    fetchCartNumber(); // Fetch the total product count on mount
+  }, []); // Runs only once on component mount
 
   return (
     <>
