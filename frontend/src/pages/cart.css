@@ -124,3 +124,9 @@
         margin-top: 20px;
     }
 }
+.option-btn:hover{
+    color: #ffffff;
+    background-color: #ff4500;
+    border:1px solid #f88c65;
+    border-radius: 1px ;
+}

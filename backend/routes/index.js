@@ -17,6 +17,7 @@ const countCartProduct=require('./../controller/USER/countAddToCartProduct');
 const cartView=require('./../controller/USER/cartViewProduct');
 const cartEdit=require('./../controller/USER/cartEdit');
 const deleteCartProduct=require('./../controller/USER/deleteCartProduct');
+const searchProduct = require('./../controller/PRODUCT/searchProduct');
 
 
 //user panel
@@ -35,6 +36,7 @@ router.get('/get-product',allProduct);
 router.post('/update-product',authToken,updateProduct);
 router.post('/get-catagoryProduct',catagoryProduct);
 router.post('/get-productById',getProductById);
+router.get('/search-product',searchProduct);
 
 //cart
 router.post('/add-to-cart',authToken,addToCart);

@@ -207,9 +207,9 @@ const Cart = () => {
                         </span>
                       </p>
                       <div style={{ display: 'flex', gap: '10px' }}>
-                        <button onClick={(e) => handleDecrease(cartDetails[idx], e)} style={{ cursor: 'pointer' }}>-</button>
+                        <button onClick={(e) => handleDecrease(cartDetails[idx], e)} style={{ cursor: 'pointer'}} className='option-btn'>-</button>
                         <p>Quantity: {cartDetails[idx].quantity}</p>
-                        <button onClick={(e) => handleIncrease(cartDetails[idx], e)} style={{ cursor: 'pointer' }}>+</button>
+                        <button onClick={(e) => handleIncrease(cartDetails[idx], e)} style={{ cursor: 'pointer' }} className='option-btn'>+</button>
                       </div>
                     </div>
                   </Link>

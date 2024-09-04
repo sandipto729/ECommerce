@@ -11,6 +11,8 @@ import ChangeUserRole from './../components/ChangeUserRole';
 import CatagoryProduct from '../components/catagoryProduct';
 import ProductPage from './../pages/ProductPage';
 import Cart from './../pages/cart';
+import SearchPage from './../pages/searchProductPage';
+
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: 'cart',
         element: <Cart />,
+      },
+      {
+        path:'search',
+        element: <SearchPage />,
       },
       {
         path: 'admin-panel',
